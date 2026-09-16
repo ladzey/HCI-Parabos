@@ -1,0 +1,93 @@
+/* home.css — halaman beranda V1+ (milik A) */
+
+.hero {
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--line);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  padding-block: var(--space-6);
+}
+
+.hero__title {
+  font-size: clamp(3rem, 8.5vw, 5.6rem);
+  margin-block: 14px 18px;
+}
+
+.hero__sub {
+  color: var(--ivory);
+  max-width: 44ch;
+  margin-bottom: var(--space-5);
+  font-size: 1.05rem;
+}
+
+.home__viewall {
+  margin-top: var(--space-5);
+  text-align: center;
+}
+
+/* Strip 5 tahap — urutan proses nyata, nomor bermakna */
+.craft-strip {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-4);
+  border-top: 1px solid var(--line);
+  padding-top: var(--space-5);
+}
+
+.craft-step__num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--gold-dim);
+  margin-bottom: 10px;
+}
+
+.craft-step h3 {
+  font-size: 1.15rem;
+  margin-bottom: 6px;
+}
+
+.craft-step p {
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+/* Band atelier */
+.atelier-band {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  padding: var(--space-5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+}
+
+.atelier-band .section-title {
+  margin-block: 8px 10px;
+}
+
+@media (max-width: 960px) {
+  .craft-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .atelier-band {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero {
+    min-height: 76vh;
+  }
+  .craft-strip {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collection — Batik Parabos</title>
+  <link rel="icon" type="image/png" href="img/logo.png">
+  <link rel="stylesheet" href="css/fonts.css?v17">
+  <link rel="stylesheet" href="css/style.css?v17">
+  <link rel="stylesheet" href="css/pages/collection.css?v17">
+</head>
+<body>
+
+  <header class="nav">
+    <div class="nav__inner">
+      <a class="nav__brand" href="index.html">
+        <img src="img/logo.png" alt="Logo Batik Parabos" class="nav__logo">
+        <span class="nav__wordmark">Batik <span>Parabos</span></span>
+      </a>
+      <nav class="nav__links" aria-label="Main navigation">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="collection.html" data-i18n="nav.collection" class="is-current">Collection</a>
+        <a href="heritage.html" data-i18n="nav.heritage">Heritage</a>
+        <a href="wishlist.html" data-i18n="nav.wishlist">Wishlist</a>
+        <a href="track.html" data-i18n="nav.track">Track Order</a>
+      </nav>
+      <div class="nav__actions">
+        <button type="button" class="lang-toggle" data-lang-toggle aria-label="Switch language">ID</button>
+        <a class="nav__cart" href="cart.html" aria-label="Cart">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12l-1 12H7L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+<main class="section wrap">
+<div class="section-head">
+        <span class="label-caps" data-i18n="collection.title">The Collection</span>
+        <h1 class="page-title" data-i18n="home.featuredTitle">Garments as Artifacts</h1>
+        <p class="lede" data-i18n="collection.sub">Garments as artifacts. Each piece is made in a limited series.</p>
+      </div>
+
+      <div class="col-bar">
+        <div class="col-filters" id="filterBar">
+          <button type="button" class="col-chip is-current" data-filter="all">All</button>
+          <button type="button" class="col-chip" data-filter="Shirts">Shirts</button>
+          <button type="button" class="col-chip" data-filter="Jackets &amp; Blazers">Jackets &amp; Blazers</button>
+          <button type="button" class="col-chip" data-filter="Formal">Formal</button>
+          <button type="button" class="col-chip" data-filter="Ceremonial">Ceremonial</button>
+        </div>
+        <div class="col-sort">
+          <label for="sortSelect" class="text-muted" data-i18n="sort.label">Sort</label>
+          <select id="sortSelect">
+            <option value="featured">Featured</option>
+            <option value="asc">Price · low to high</option>
+            <option value="desc">Price · high to low</option>
+          </select>
+        </div>
+      </div>
+
+      <p class="col-count text-muted" id="colCount"></p>
+      <div class="product-grid" id="colGrid"></div>
+<p class="col-empty text-muted" id="colEmpty" hidden></p>
+</main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__brand">
+          <img src="img/logo.png" alt="">
+          <span class="nav__wordmark">Batik <span>Parabos</span></span>
+        </div>
+        <p class="text-muted" data-i18n="footer.tag">Javanese craftsmanship, reimagined.</p>
+        <p class="text-muted footer__addr">Jl. Veteran No. 339B, Tipes, Serengan, Surakarta 57154</p>
+      </div>
+      <div>
+        <span class="label-caps">Menu</span>
+        <ul>
+          <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+          <li><a href="heritage.html" data-i18n="nav.heritage">Heritage</a></li>
+          <li><a href="wishlist.html" data-i18n="nav.wishlist">Wishlist</a></li>
+          <li><a href="track.html" data-i18n="footer.track">Track Order</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="label-caps" data-i18n="atelier.sub">Private appointments</span>
+        <p class="text-muted">+62 813 9377 7237</p>
+        <p class="text-muted">sadaputraparabos@gmail.com</p>
+        <p class="text-muted" data-i18n="atelier.hours">Monday – Saturday, 09:00 – 18:00 WIB</p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__bottom-inner">
+        <span>© 2026 Batik Parabos · <span data-i18n="footer.rights">All rights reserved.</span></span>
+        <span>HCI midterm · educational front-end simulation</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/products.js?v17"></script>
+  <script src="js/i18n.js?v17"></script>
+  <script src="js/main.js?v17"></script>
+  <script src="js/catalog.js?v17"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

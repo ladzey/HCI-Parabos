@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batik Parabos — Heritage Batik Couture, Surakarta</title>
+  <meta name="description" content="A Surakarta couture house of hand-drawn batik: shirts, jackets and ceremonial blazers uniting Javanese motifs with contemporary tailoring.">
+  <link rel="icon" type="image/png" href="img/logo.png">
+  <link rel="stylesheet" href="css/fonts.css?v17">
+  <link rel="stylesheet" href="css/style.css?v17">
+  <link rel="stylesheet" href="css/pages/home.css?v17">
+</head>
+<body>
+
+  <header class="nav">
+    <div class="nav__inner">
+      <a class="nav__brand" href="index.html">
+        <img src="img/logo.png" alt="Logo Batik Parabos" class="nav__logo">
+        <span class="nav__wordmark">Batik <span>Parabos</span></span>
+      </a>
+      <nav class="nav__links" aria-label="Main navigation">
+        <a href="index.html" data-i18n="nav.home" class="is-current">Home</a>
+        <a href="collection.html" data-i18n="nav.collection">Collection</a>
+        <a href="heritage.html" data-i18n="nav.heritage">Heritage</a>
+        <a href="wishlist.html" data-i18n="nav.wishlist">Wishlist</a>
+        <a href="track.html" data-i18n="nav.track">Track Order</a>
+      </nav>
+      <div class="nav__actions">
+        <button type="button" class="lang-toggle" data-lang-toggle aria-label="Switch language">ID</button>
+        <a class="nav__cart" href="cart.html" aria-label="Cart">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12l-1 12H7L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-media">
+        <img src="img/hero.jpg" alt="Punggung blazer batik tulis sogan dengan medali emas">
+      </div>
+      <div class="hero-scrim"></div>
+      <div class="hero__content wrap">
+        <p class="label-caps reveal">Surakarta · Central Java</p>
+        <h1 class="hero__title reveal">Heritage Woven in Gold</h1>
+        <p class="hero__sub reveal">A couture house of hand-drawn batik, tailored for the contemporary gentleman.</p>
+        <a href="collection.html" class="btn reveal">Explore the Collection</a>
+      </div>
+    </section>
+
+    <section class="section wrap">
+      <div class="section-head reveal">
+        <span class="label-caps" data-i18n="home.featured">Featured Pieces</span>
+        <h2 class="section-title" data-i18n="home.featuredTitle">Garments as Artifacts</h2>
+      </div>
+      <div class="product-grid" id="featuredGrid"></div>
+      <div class="home__viewall">
+        <a href="collection.html" class="btn btn--ghost">View the full collection</a>
+      </div>
+    </section>
+
+    <section class="section wrap">
+      <div class="section-head reveal">
+        <span class="label-caps" data-i18n="heritage.craft">The Craft</span>
+        <h2 class="section-title" data-i18n="home.craft">Eleven weeks of wax, dye and patience</h2>
+        <p class="lede" data-i18n="home.craftSub">Every garment begins the way it always has: a single artisan, a copper canting, and molten wax.</p>
+      </div>
+      <div class="craft-strip">
+        <div class="craft-step">
+          <span class="craft-step__num">01</span>
+          <h3 data-i18n="craft.1.title">Nyorek</h3>
+          <p class="text-muted" data-i18n="craft.1.desc">The motif is drafted by hand onto raw cloth.</p>
+        </div>
+        <div class="craft-step">
+          <span class="craft-step__num">02</span>
+          <h3 data-i18n="craft.2.title">Canting</h3>
+          <p class="text-muted" data-i18n="craft.2.desc">Molten wax is traced line by line with a copper canting.</p>
+        </div>
+        <div class="craft-step">
+          <span class="craft-step__num">03</span>
+          <h3 data-i18n="craft.3.title">Natural Dyeing</h3>
+          <p class="text-muted" data-i18n="craft.3.desc">Indigo leaf, soga bark and mahogany root — never rushed.</p>
+        </div>
+        <div class="craft-step">
+          <span class="craft-step__num">04</span>
+          <h3 data-i18n="craft.4.title">Prada</h3>
+          <p class="text-muted" data-i18n="craft.4.desc">Gold is laid onto selected motifs by hand.</p>
+        </div>
+        <div class="craft-step">
+          <span class="craft-step__num">05</span>
+          <h3 data-i18n="craft.5.title">Tailoring</h3>
+          <p class="text-muted" data-i18n="craft.5.desc">Cut and constructed in-house, edged with hand embroidery.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap">
+      <div class="atelier-band reveal">
+        <div>
+          <span class="label-caps" data-i18n="atelier.sub">Private appointments</span>
+          <h2 class="section-title" data-i18n="atelier.title">Visit the Atelier</h2>
+          <p class="lede" data-i18n="atelier.p">Our Surakarta atelier receives guests by appointment for fittings, bespoke commissions and archive viewings.</p>
+        </div>
+        <a href="heritage.html#atelier" class="btn">Plan your visit</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__brand">
+          <img src="img/logo.png" alt="">
+          <span class="nav__wordmark">Batik <span>Parabos</span></span>
+        </div>
+        <p class="text-muted" data-i18n="footer.tag">Javanese craftsmanship, reimagined.</p>
+        <p class="text-muted footer__addr">Jl. Veteran No. 339B, Tipes, Serengan, Surakarta 57154</p>
+      </div>
+      <div>
+        <span class="label-caps">Menu</span>
+        <ul>
+          <li><a href="collection.html" data-i18n="nav.collection">Collection</a></li>
+          <li><a href="heritage.html" data-i18n="nav.heritage">Heritage</a></li>
+          <li><a href="wishlist.html" data-i18n="nav.wishlist">Wishlist</a></li>
+          <li><a href="track.html" data-i18n="footer.track">Track Order</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="label-caps" data-i18n="atelier.sub">Private appointments</span>
+        <p class="text-muted">+62 813 9377 7237</p>
+        <p class="text-muted">sadaputraparabos@gmail.com</p>
+        <p class="text-muted" data-i18n="atelier.hours">Monday – Saturday, 09:00 – 18:00 WIB</p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__bottom-inner">
+        <span>© 2026 Batik Parabos · <span data-i18n="footer.rights">All rights reserved.</span></span>
+        <span>HCI midterm · educational front-end simulation</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/products.js?v17"></script>
+  <script src="js/i18n.js?v17"></script>
+  <script src="js/main.js?v17"></script>
+  <script src="js/home.js?v17"></script>
+</body>
+</html>
+
+
+
+
+
+
+

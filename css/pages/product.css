@@ -1,0 +1,130 @@
+/* product.css — V1+ (milik B) */
+
+.prod-back {
+  display: inline-block;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-4);
+}
+
+.prod-back:hover {
+  color: var(--gold);
+}
+
+.prod-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.prod-media {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.prod-media img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+.prod-name {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-block: 8px 6px;
+}
+
+.prod-motif {
+  font-size: 0.95rem;
+}
+
+.prod-price {
+  margin-block: var(--space-3) var(--space-4);
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--gold);
+}
+
+.prod-price .from {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-right: 8px;
+}
+
+.prod-wishnote {
+  border-left: 2px solid var(--gold);
+  background: var(--surface);
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: var(--space-3);
+}
+
+.prod-size-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.prod-sizes {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: var(--space-4);
+}
+
+.size-chip {
+  min-width: 46px;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-align: center;
+  transition: border-color 0.3s var(--ease), color 0.3s var(--ease), background 0.3s var(--ease);
+}
+
+.size-chip:hover {
+  border-color: var(--gold-dim);
+  color: var(--ivory);
+}
+
+.size-chip.is-current {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(198, 161, 91, 0.08);
+}
+
+.prod-actions {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-3);
+}
+
+#btnCommission {
+  width: 100%;
+  margin-bottom: var(--space-3);
+}
+
+.prod-desc {
+  border-top: 1px solid var(--line);
+  padding-top: var(--space-4);
+}
+
+.prod-desc .label-caps {
+  display: block;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 900px) {
+  .prod-layout {
+    grid-template-columns: 1fr;
+  }
+}

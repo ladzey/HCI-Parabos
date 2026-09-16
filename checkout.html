@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — Batik Parabos</title>
+  <link rel="icon" type="image/png" href="img/logo.png">
+  <link rel="stylesheet" href="css/fonts.css?v17">
+  <link rel="stylesheet" href="css/style.css?v17">
+  <link rel="stylesheet" href="css/pages/checkout.css?v17">
+</head>
+<body>
+
+  <header class="nav">
+    <div class="nav__inner">
+      <a class="nav__brand" href="index.html">
+        <img src="img/logo.png" alt="Logo Batik Parabos" class="nav__logo">
+        <span class="nav__wordmark">Batik <span>Parabos</span></span>
+      </a>
+      <nav class="nav__links" aria-label="Main navigation">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="collection.html" data-i18n="nav.collection" class="is-current">Collection</a>
+        <a href="heritage.html" data-i18n="nav.heritage">Heritage</a>
+        <a href="wishlist.html" data-i18n="nav.wishlist">Wishlist</a>
+        <a href="track.html" data-i18n="nav.track">Track Order</a>
+      </nav>
+      <div class="nav__actions">
+        <button type="button" class="lang-toggle" data-lang-toggle aria-label="Switch language">ID</button>
+        <a class="nav__cart" href="cart.html" aria-label="Cart">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12l-1 12H7L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section wrap">
+    <div id="coEmpty" hidden>
+      <p class="lede" data-i18n="checkout.empty">Your cart is empty — add a piece first.</p>
+      <a href="collection.html" class="btn" data-i18n="cart.browse">Browse the collection</a>
+    </div>
+
+    <div id="coForm" hidden>
+      <div class="section-head">
+        <span class="label-caps" data-i18n="nav.cart">Cart</span>
+        <h1 class="page-title" data-i18n="checkout.title">Checkout</h1>
+      </div>
+
+      <div class="co-layout">
+        <section class="co-panel">
+          <span class="label-caps" data-i18n="checkout.details">Delivery details</span>
+          <form id="checkoutForm" novalidate>
+            <div class="field co-field">
+              <label for="fName" data-i18n="checkout.name">Full name</label>
+              <input type="text" id="fName" autocomplete="name">
+              <span class="field-error" id="eName" data-i18n="checkout.err.name">Please enter your name</span>
+            </div>
+            <div class="field co-field">
+              <label for="fPhone" data-i18n="checkout.phone">Phone / WhatsApp</label>
+              <input type="tel" id="fPhone" autocomplete="tel">
+              <span class="field-error" id="ePhone" data-i18n="checkout.err.phone">Please enter a valid phone number</span>
+            </div>
+            <div class="field co-field">
+              <label for="fAddr" data-i18n="checkout.address">Delivery address</label>
+              <textarea id="fAddr" rows="3" autocomplete="street-address"></textarea>
+              <span class="field-error" id="eAddr" data-i18n="checkout.err.address">Please enter your delivery address</span>
+            </div>
+
+            <span class="label-caps co-pay-label" data-i18n="checkout.payment">Payment</span>
+            <div class="co-pay-options">
+              <label class="co-pay-option">
+                <input type="radio" name="pay" value="transfer" checked>
+                <svg class="co-pay-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10l9-6 9 6"/><path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8"/><path d="M3 18h18"/></svg>
+                <span class="co-pay-text">
+                  <span class="co-pay-name" data-i18n="checkout.pay.transfer">Bank transfer</span>
+                  <span class="co-pay-desc" data-i18n="checkout.pay.transferDesc">Pay from any bank account</span>
+                </span>
+              </label>
+
+              <label class="co-pay-option">
+                <input type="radio" name="pay" value="va">
+                <svg class="co-pay-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M8 7h8M8 11h8M8 15h4"/><path d="M16 17h.01"/></svg>
+                <span class="co-pay-text">
+                  <span class="co-pay-name" data-i18n="checkout.pay.va">Virtual account</span>
+                  <span class="co-pay-desc" data-i18n="checkout.pay.vaDesc">One-time account number — BCA, Mandiri, BNI, BRI</span>
+                </span>
+              </label>
+
+              <label class="co-pay-option">
+                <input type="radio" name="pay" value="qris">
+                <svg class="co-pay-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3h-3zM18 18h3v3h-3zM14 21v-2M21 14h-2"/></svg>
+                <span class="co-pay-text">
+                  <span class="co-pay-name" data-i18n="checkout.pay.qris">QRIS</span>
+                  <span class="co-pay-desc" data-i18n="checkout.pay.qrisDesc">Scan with any e-wallet or m-banking</span>
+                </span>
+              </label>
+            </div>
+            <p class="co-sim text-muted" data-i18n="checkout.sim">Simulated payment — no real charge</p>
+          </form>
+        </section>
+
+        <aside class="co-summary">
+          <span class="label-caps" data-i18n="checkout.summary">Order summary</span>
+          <div id="coItems" class="co-items"></div>
+          <div class="cart-row-line">
+            <span class="text-muted" data-i18n="cart.subtotal">Subtotal</span>
+            <span id="coSubtotal"></span>
+          </div>
+          <div class="cart-row-line">
+            <span class="text-muted" data-i18n="cart.shipping">Shipping</span>
+            <span class="cart-free" data-i18n="cart.shippingVal">Complimentary insured delivery</span>
+          </div>
+          <div class="cart-row-line cart-row-line--total">
+            <span data-i18n="cart.total">Total</span>
+            <span id="coTotal"></span>
+          </div>
+          <button type="submit" form="checkoutForm" class="btn btn--solid" id="btnPay" data-i18n="checkout.pay">Place Order</button>
+        </aside>
+      </div>
+    </div>
+
+<div id="coPayment" hidden>
+  <div class="success pay-screen">
+    <span class="label-caps" data-i18n="pay.title">Payment Instructions</span>
+    <h1 class="page-title" id="payTitle"></h1>
+    <p class="lede" data-i18n="pay.sub">Complete your payment to confirm the order.</p>
+
+    <div class="pay-total">
+      <span class="text-muted" data-i18n="cart.total">Total</span>
+      <strong id="payAmount"></strong>
+    </div>
+
+    <!-- Transfer -->
+    <div class="pay-method" id="payTransfer" hidden>
+      <div class="co-pay-line"><span class="text-muted" data-i18n="checkout.pay.bank">Bank</span><strong>BCA</strong></div>
+      <div class="co-pay-line"><span class="text-muted" data-i18n="checkout.pay.account">Account number</span><strong>8001 2345 6789</strong></div>
+      <div class="co-pay-line"><span class="text-muted" data-i18n="checkout.pay.holder">Account holder</span><strong>Batik Parabos</strong></div>
+    </div>
+
+    <!-- Virtual account -->
+    <div class="pay-method" id="payVa" hidden>
+      <p class="text-muted" data-i18n="pay.vaBank">Virtual account bank</p>
+      <div class="va-banks" id="vaBanks">
+        <button type="button" class="va-bank is-current" data-bank="BCA">BCA</button>
+        <button type="button" class="va-bank" data-bank="Mandiri">Mandiri</button>
+        <button type="button" class="va-bank" data-bank="BNI">BNI</button>
+        <button type="button" class="va-bank" data-bank="BRI">BRI</button>
+      </div>
+      <div class="va-number" id="vaNumber"></div>
+      <ol class="pay-steps text-muted">
+        <li data-i18n="pay.vaStep1">Open your m-banking or ATM.</li>
+        <li data-i18n="pay.vaStep2">Choose Virtual Account billing.</li>
+        <li data-i18n="pay.vaStep3">Enter the number above and pay the full amount.</li>
+      </ol>
+    </div>
+
+    <!-- QRIS -->
+    <div class="pay-method" id="payQris" hidden>
+      <div class="co-pay-qr" aria-hidden="true">
+        <svg viewBox="0 0 21 21"><path d="M0 0h7v7H0zM2 2h3v3H2zM14 0h7v7h-7zM16 2h3v3h-3zM0 14h7v7H0zM2 16h3v3H2zM9 0h2v2H9zM12 1h1v3h-1zM9 4h1v2H9zM0 9h2v2H0zM4 10h3v1H4zM9 9h2v2H9zM12 11h1v2h-1zM9 13h1v3H9zM11 15h2v2h-2zM14 14h2v1h-2zM17 13h2v1h-2zM19 15h2v3h-2zM14 18h1v3h-1zM16 20h2v1h-2zM9 19h1v2H9zM3 9h1v1H3zM6 13h1v1H6z" fill="currentColor"/></svg>
+      </div>
+      <p class="text-muted" data-i18n="pay.qrisHint">Scan with any e-wallet or m-banking app.</p>
+    </div>
+
+    <!-- Simulated gateway: auto-verified after 5 seconds -->
+    <div class="pay-wait">
+      <p class="pay-wait__status text-muted" data-i18n="pay.waiting">Payment gateway is verifying your payment… (simulated)</p>
+      <div class="pay-progress" role="progressbar" aria-label="Payment verification">
+        <div class="pay-progress__fill" id="payProgressFill"></div>
+      </div>
+    </div>
+
+    <p class="co-pay-sim text-muted" data-i18n="pay.simNoticeFull">Payment confirmation is simulated — this demo marks the order as paid automatically after a few seconds. In a real store, a payment gateway verifies every payment in real time.</p>
+  </div>
+</div>
+
+<div id="coSuccess" hidden>
+  <div class="success">
+    <h1 class="page-title" data-i18n="success.thanks">Order Confirmed</h1>
+    <p class="lede" data-i18n="success.paidSub">Payment received — your piece is queued with the atelier.</p>
+    <div class="success__no">
+      <span class="text-muted" data-i18n="success.orderNo">Order number</span>
+      <strong id="successNo"></strong>
+    </div>
+    <p class="text-muted success__hint" data-i18n="success.shipPending">A shipping code will appear once the courier processes your package — track your order to see it.</p>
+    <div class="success__actions">
+      <a href="track.html" class="btn btn--solid" data-i18n="success.track">Track Your Order</a>
+      <a href="collection.html" class="btn btn--ghost" data-i18n="success.back">Back to Collection</a>
+    </div>
+  </div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__brand">
+          <img src="img/logo.png" alt="">
+          <span class="nav__wordmark">Batik <span>Parabos</span></span>
+        </div>
+        <p class="text-muted" data-i18n="footer.tag">Javanese craftsmanship, reimagined.</p>
+        <p class="text-muted footer__addr">Jl. Veteran No. 339B, Tipes, Serengan, Surakarta 57154</p>
+      </div>
+      <div>
+        <span class="label-caps">Menu</span>
+        <ul>
+          <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+          <li><a href="collection.html" data-i18n="nav.collection">Collection</a></li>
+          <li><a href="heritage.html" data-i18n="nav.heritage">Heritage</a></li>
+          <li><a href="track.html" data-i18n="footer.track">Track Order</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="label-caps" data-i18n="atelier.sub">Private appointments</span>
+        <p class="text-muted">+62 813 9377 7237</p>
+        <p class="text-muted">sadaputraparabos@gmail.com</p>
+        <p class="text-muted" data-i18n="atelier.hours">Monday – Saturday, 09:00 – 18:00 WIB</p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__bottom-inner">
+        <span>© 2026 Batik Parabos · <span data-i18n="footer.rights">All rights reserved.</span></span>
+        <span>HCI midterm · educational front-end simulation</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/products.js?v17"></script>
+  <script src="js/i18n.js?v17"></script>
+  <script src="js/main.js?v17"></script>
+  <script src="js/checkout.js?v17"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

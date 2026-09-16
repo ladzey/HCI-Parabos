@@ -1,0 +1,86 @@
+/* collection.css — V1+ (milik B) */
+
+.col-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  border-block: 1px solid var(--line);
+  padding-block: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.col-filters {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.col-chip {
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: border-color 0.3s var(--ease), color 0.3s var(--ease), background 0.3s var(--ease);
+}
+
+.col-chip:hover {
+  border-color: var(--gold-dim);
+  color: var(--ivory);
+}
+
+.col-chip.is-current {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.col-sort {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.col-sort label {
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.col-sort select {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--ivory);
+  padding: 8px 12px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+}
+
+.col-count {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
+}
+
+.col-empty {
+  padding-block: var(--space-6);
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .col-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .col-filters {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 4px;
+  }
+  .col-chip {
+    white-space: nowrap;
+  }
+}

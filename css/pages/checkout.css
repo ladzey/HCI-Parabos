@@ -1,0 +1,401 @@
+/* checkout.css — V1+ (milik C) */
+
+.co-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  gap: var(--space-5);
+  align-items: start;
+}
+
+.co-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: var(--space-5);
+}
+
+.co-panel > .label-caps {
+  display: block;
+  margin-bottom: var(--space-4);
+}
+
+.co-field {
+  margin-bottom: 16px;
+}
+
+.co-pay-label {
+  display: block;
+  margin-block: var(--space-4) 10px;
+}
+
+.co-pay-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.co-pay-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  color: var(--ivory);
+  cursor: pointer;
+  transition: border-color 0.3s var(--ease), background 0.3s var(--ease);
+}
+
+.co-pay-option:hover {
+  border-color: var(--gold-dim);
+}
+
+.co-pay-option:has(input:checked) {
+  border-color: var(--gold);
+  background: rgba(198, 161, 91, 0.06);
+}
+
+.co-pay-option input {
+  accent-color: var(--gold);
+  width: 16px;
+  height: 16px;
+  flex: none;
+}
+
+.co-pay-icon {
+  width: 24px;
+  height: 24px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 1.4;
+  flex: none;
+}
+
+.co-pay-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.co-pay-name {
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.co-pay-desc {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+/* Panel detail per metode — muncul hanya saat opsi dipilih */
+.co-pay-detail {
+  display: none;
+  margin: -4px 0 0;
+  padding: 14px 18px;
+  background: rgba(198, 161, 91, 0.04);
+  border: 1px dashed var(--gold-dim);
+  border-top: none;
+}
+
+.co-pay-option:has(input:checked) + .co-pay-detail {
+  display: block;
+}
+
+.co-pay-line {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  font-size: 0.86rem;
+  padding-block: 5px;
+}
+
+.co-pay-line strong {
+  font-weight: 500;
+  color: var(--gold);
+  letter-spacing: 0.03em;
+}
+
+.co-pay-sim {
+  margin-top: 8px;
+  font-size: 0.72rem;
+}
+
+.co-pay-qr {
+  width: 132px;
+  padding: 10px;
+  background: var(--ivory);
+  margin-bottom: 6px;
+}
+
+.co-pay-qr svg {
+  display: block;
+  width: 100%;
+  color: #0E0D0B;
+}
+
+.co-sim {
+  margin-top: 12px;
+  font-size: 0.78rem;
+}
+
+/* Summary */
+.co-summary {
+  background: var(--surface);
+  border: 1px solid var(--gold-dim);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.co-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.co-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 0.85rem;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed var(--line);
+}
+
+.co-item .qty {
+  color: var(--muted);
+}
+
+/* duplikat baris ringkasan untuk checkout (nama class sama dengan cart.css) */
+.cart-row-line {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  font-size: 0.92rem;
+}
+
+.cart-free {
+  color: var(--gold);
+  font-size: 0.8rem;
+  text-align: right;
+  max-width: 16ch;
+}
+
+.cart-row-line--total {
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--gold);
+}
+
+/* Success */
+.success {
+  max-width: 560px;
+  margin-inline: auto;
+  text-align: center;
+  border: 1px solid var(--gold-dim);
+  background: var(--surface);
+  padding: var(--space-6) var(--space-5);
+}
+
+.success .page-title {
+  margin-bottom: 10px;
+}
+
+/* Layar instruksi pembayaran */
+.pay-screen {
+  text-align: center;
+}
+
+.pay-screen .lede {
+  margin-inline: auto;
+  margin-bottom: var(--space-4);
+}
+
+.pay-total {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 12px;
+  border-block: 1px solid var(--line);
+  padding-block: 14px;
+  margin-bottom: var(--space-4);
+}
+
+.pay-total strong {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  color: var(--gold);
+}
+
+.pay-method {
+  text-align: left;
+  border: 1px solid var(--line);
+  padding: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.co-pay-line {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  font-size: 0.9rem;
+  padding-block: 6px;
+}
+
+.co-pay-line strong {
+  font-weight: 500;
+  color: var(--gold);
+  letter-spacing: 0.03em;
+}
+
+.pay-amount-field {
+  margin-block: var(--space-3) 6px;
+}
+
+.pay-amount-field input {
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+}
+
+/* Simulated gateway: status + progress bar 5 detik */
+.pay-wait {
+  text-align: center;
+  margin-bottom: var(--space-4);
+}
+
+.pay-wait__status {
+  font-size: 0.86rem;
+  margin-bottom: 12px;
+}
+
+.pay-progress {
+  height: 3px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.pay-progress__fill {
+  width: 0;
+  height: 100%;
+  background: var(--gold);
+}
+
+.pay-progress__fill.is-running {
+  animation: payFill 5s linear forwards;
+}
+
+@keyframes payFill {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pay-progress__fill.is-running {
+    animation: none;
+    width: 100%;
+  }
+}
+
+/* Nomor VA */
+.va-banks {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-block: 6px 14px;
+}
+
+.va-bank {
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  transition: border-color 0.3s var(--ease), color 0.3s var(--ease);
+}
+
+.va-bank:hover {
+  border-color: var(--gold-dim);
+  color: var(--ivory);
+}
+
+.va-bank.is-current {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(198, 161, 91, 0.08);
+}
+
+.va-number {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  background: rgba(198, 161, 91, 0.05);
+  border: 1px dashed var(--gold-dim);
+  padding: 16px;
+  text-align: center;
+  margin-bottom: 14px;
+  user-select: all;
+}
+
+.pay-steps {
+  margin: 0 0 16px 20px;
+  font-size: 0.85rem;
+}
+
+.pay-steps li {
+  margin-bottom: 4px;
+}
+
+.pay-method .btn {
+  width: 100%;
+}
+
+/* QR di layar instruksi */
+.pay-method .co-pay-qr {
+  width: 148px;
+  margin-inline: auto;
+  margin-bottom: 10px;
+}
+
+.success__code strong {
+  color: var(--ivory);
+  letter-spacing: 0.14em;
+  font-size: 1.7rem;
+}
+
+.success__hint {
+  font-size: 0.82rem;
+  max-width: 46ch;
+  margin-inline: auto;
+}
+
+.success__no {
+  margin-block: var(--space-5) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.success__no strong {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+}
+
+.success__actions {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+  .co-layout {
+    grid-template-columns: 1fr;
+  }
+}

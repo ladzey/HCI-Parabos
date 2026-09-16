@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piece — Batik Parabos</title>
+  <link rel="icon" type="image/png" href="img/logo.png">
+  <link rel="stylesheet" href="css/fonts.css?v17">
+  <link rel="stylesheet" href="css/style.css?v17">
+  <link rel="stylesheet" href="css/pages/product.css?v17">
+</head>
+<body>
+
+  <header class="nav">
+    <div class="nav__inner">
+      <a class="nav__brand" href="index.html">
+        <img src="img/logo.png" alt="Logo Batik Parabos" class="nav__logo">
+        <span class="nav__wordmark">Batik <span>Parabos</span></span>
+      </a>
+      <nav class="nav__links" aria-label="Main navigation">
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="collection.html" data-i18n="nav.collection" class="is-current">Collection</a>
+        <a href="heritage.html" data-i18n="nav.heritage">Heritage</a>
+        <a href="wishlist.html" data-i18n="nav.wishlist">Wishlist</a>
+        <a href="track.html" data-i18n="nav.track">Track Order</a>
+      </nav>
+      <div class="nav__actions">
+        <button type="button" class="lang-toggle" data-lang-toggle aria-label="Switch language">ID</button>
+        <a class="nav__cart" href="cart.html" aria-label="Cart">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12l-1 12H7L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="section wrap">
+    <a href="collection.html" class="prod-back text-muted" data-i18n="product.back">← Back to Collection</a>
+
+    <div id="prodNotFound" hidden>
+      <p class="lede" data-i18n="product.notFound">This piece could not be found.</p>
+      <a href="collection.html" class="btn" data-i18n="product.back">Back to Collection</a>
+    </div>
+
+    <article class="prod-layout" id="prodLayout" hidden>
+      <div class="prod-media">
+        <img id="prodImg" src="" alt="">
+      </div>
+      <div class="prod-info">
+        <div class="prod-cat label-caps" id="prodCat"></div>
+        <h1 class="prod-name" id="prodName"></h1>
+        <p class="prod-motif text-muted" id="prodMotif"></p>
+        <div class="prod-price" id="prodPrice"></div>
+
+        <div id="wishNote" class="prod-wishnote" hidden data-i18n="wish.sub"></div>
+
+        <div id="sizeBlock">
+          <p class="prod-size-label text-muted" data-i18n="product.size">Select size</p>
+          <div class="prod-sizes" id="prodSizes"></div>
+        </div>
+
+        <div class="prod-actions">
+          <button type="button" class="btn btn--solid" id="btnAdd" data-i18n="product.addCart">Add to Cart</button>
+          <button type="button" class="btn" id="btnBuy" data-i18n="product.buyNow">Buy Now</button>
+          <button type="button" class="btn btn--ghost" id="btnWish"></button>
+        </div>
+        <button type="button" class="btn" id="btnCommission" hidden data-i18n="product.commission">Request Commission</button>
+
+        <div class="prod-desc">
+          <span class="label-caps" data-i18n="product.motif">The Motif</span>
+          <p id="prodDesc" class="lede"></p>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__brand">
+          <img src="img/logo.png" alt="">
+          <span class="nav__wordmark">Batik <span>Parabos</span></span>
+        </div>
+        <p class="text-muted" data-i18n="footer.tag">Javanese craftsmanship, reimagined.</p>
+        <p class="text-muted footer__addr">Jl. Veteran No. 339B, Tipes, Serengan, Surakarta 57154</p>
+      </div>
+      <div>
+        <span class="label-caps">Menu</span>
+        <ul>
+          <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+          <li><a href="collection.html" data-i18n="nav.collection">Collection</a></li>
+          <li><a href="heritage.html" data-i18n="nav.heritage">Heritage</a></li>
+          <li><a href="track.html" data-i18n="footer.track">Track Order</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="label-caps" data-i18n="atelier.sub">Private appointments</span>
+        <p class="text-muted">+62 813 9377 7237</p>
+        <p class="text-muted">sadaputraparabos@gmail.com</p>
+        <p class="text-muted" data-i18n="atelier.hours">Monday – Saturday, 09:00 – 18:00 WIB</p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__bottom-inner">
+        <span>© 2026 Batik Parabos · <span data-i18n="footer.rights">All rights reserved.</span></span>
+        <span>HCI midterm · educational front-end simulation</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal-backdrop" id="commissionBackdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="commissionTitle">
+      <h2 class="modal__title" id="commissionTitle" data-i18n="product.commissionTitle">Request a Commission</h2>
+      <p class="modal__sub" data-i18n="product.commissionSub">This piece is cut to your measure.</p>
+      <form id="commissionForm" novalidate>
+        <div class="field" style="margin-bottom:14px">
+          <label for="cName" data-i18n="product.commissionName">Name</label>
+          <input type="text" id="cName" required>
+        </div>
+        <div class="field" style="margin-bottom:14px">
+          <label for="cWa" data-i18n="product.commissionWa">WhatsApp</label>
+          <input type="tel" id="cWa" required>
+        </div>
+        <div class="field" style="margin-bottom:6px">
+          <label for="cNote" data-i18n="product.commissionNote">Size &amp; notes</label>
+          <textarea id="cNote" rows="3"></textarea>
+        </div>
+        <div class="modal__actions">
+          <button type="submit" class="btn btn--solid" data-i18n="product.commissionSend">Send Request</button>
+          <button type="button" class="btn btn--ghost" id="cCancel" data-i18n="cart.remove">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/products.js?v17"></script>
+  <script src="js/i18n.js?v17"></script>
+  <script src="js/main.js?v17"></script>
+  <script src="js/product.js?v17"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

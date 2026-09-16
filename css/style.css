@@ -1,0 +1,681 @@
+/* style.css — design system Batik Parabos, Dark Couture V1+ (milik A)
+   Identitas V1 dipertahankan: obsidian + emas, Cormorant Garamond + Jost, radius tajam 0,
+   pedestal kartu. Penyempurnaan: kontras WCAG diaudit, motion bermakna, depth halus. */
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #0E0D0B;         /* charcoal hampir hitam */
+  --surface: #1A1713;    /* pedestal kartu produk */
+  --surface-2: #211D18;  /* lapisan lebih tinggi — toast, chip */
+  --gold: #C6A15B;       /* aksen emas metalik */
+  --gold-dim: #8A6D3B;   /* emas redup — border, garis */
+  --ivory: #F2EDE4;      /* teks utama — kontras 15.9:1 */
+  --muted: #A39B8B;      /* teks sekunder — kontras 6.6:1 */
+  --line: #2E2822;       /* border halus */
+  --indigo: #2C3E5D;     /* aksen produk indigo */
+  --sogan: #6B4A2F;      /* aksen coklat sogan */
+  --error: #D99A73;
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Jost', 'Segoe UI', sans-serif;
+
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 40px;
+  --space-6: 64px;
+
+  --radius: 0;           /* tajam — couture */
+  --measure: 62ch;
+
+  --ease: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(1100px 520px at 85% -10%, rgba(198, 161, 91, 0.05), transparent 60%),
+    var(--bg);
+  color: var(--ivory);
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.65;
+  min-height: 100vh;
+}
+
+/* Grain film — fixed, pointer-events none, sangat halus */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 1px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* Atribut hidden selalu menang atas rule display apapun (bug cart: layout tak tersembunyi) */
+[hidden] {
+  display: none !important;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--bg);
+}
+
+/* ---------- Typografi ---------- */
+h1, h2, h3, .display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: 0.01em;
+}
+
+.page-title {
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+}
+
+.lede {
+  color: var(--muted);
+  max-width: var(--measure);
+}
+
+.label-caps {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--gold);
+}
+
+.text-muted {
+  color: var(--muted);
+}
+
+.gold-rule {
+  border: none;
+  border-top: 1px solid var(--line);
+}
+
+/* ---------- Tombol ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.85rem 1.9rem;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: transparent;
+  transition: background 0.35s var(--ease), color 0.35s var(--ease), border-color 0.35s var(--ease), transform 0.35s var(--ease);
+}
+
+.btn:hover {
+  background: var(--gold);
+  color: var(--bg);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn--solid {
+  background: var(--gold);
+  color: var(--bg);
+}
+
+.btn--solid:hover {
+  background: transparent;
+  color: var(--gold);
+}
+
+.btn--ghost {
+  border-color: var(--line);
+  color: var(--muted);
+}
+
+.btn--ghost:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: transparent;
+}
+
+.btn[disabled] {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* ---------- Layout umum ---------- */
+.wrap {
+  width: min(1180px, 92%);
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: var(--space-6);
+}
+
+.section-head {
+  margin-bottom: var(--space-5);
+}
+
+.section-head .label-caps {
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+/* ---------- Navbar (V1: sticky flat) ---------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(14, 13, 11, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav__inner {
+  width: min(1180px, 92%);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  min-height: 72px;
+}
+
+.nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: auto;
+}
+
+.nav__logo {
+  width: 34px;
+  height: 34px;
+  object-fit: cover;
+  border: 1px solid var(--gold-dim);
+}
+
+.nav__wordmark {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.nav__wordmark span {
+  color: var(--gold);
+}
+
+.nav__links {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.nav__links a {
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-block: 6px;
+  border-bottom: 1px solid transparent;
+  transition: color 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+
+.nav__links a:hover,
+.nav__links a.is-current {
+  color: var(--ivory);
+  border-bottom-color: var(--gold);
+}
+
+.nav__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-left: var(--space-2);
+}
+
+.lang-toggle {
+  min-width: 44px;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  transition: border-color 0.3s var(--ease), color 0.3s var(--ease);
+}
+
+.lang-toggle:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.nav__cart {
+  position: relative;
+  display: inline-flex;
+  padding: 6px;
+}
+
+.nav__cart svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--ivory);
+  fill: none;
+  stroke-width: 1.4;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -2px;
+  right: -4px;
+  min-width: 17px;
+  height: 17px;
+  padding-inline: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gold);
+  color: var(--bg);
+  font-size: 0.6rem;
+  font-weight: 500;
+  border-radius: 999px;
+  visibility: hidden;
+}
+
+.cart-badge--active {
+  visibility: visible;
+}
+
+/* ---------- Kartu produk (pedestal V1) ---------- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+.product-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  transition: border-color 0.4s var(--ease), transform 0.4s var(--ease);
+}
+
+.product-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+}
+
+.product-card__media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+}
+
+.product-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s var(--ease);
+}
+
+.product-card:hover .product-card__media img {
+  transform: scale(1.04);
+}
+
+.product-card__body {
+  padding: var(--space-3) var(--space-3) var(--space-4);
+}
+
+.product-card__cat {
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.product-card__name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.product-card__price {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+}
+
+.product-card__price--muted {
+  color: var(--muted);
+}
+
+/* ---------- Toast ---------- */
+.toast {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 100;
+  max-width: 340px;
+  padding: 14px 20px;
+  background: var(--surface-2);
+  border: 1px solid var(--gold-dim);
+  color: var(--ivory);
+  font-size: 0.85rem;
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
+}
+
+.toast--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Form ---------- */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.field input,
+.field textarea,
+.field select {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--ivory);
+  padding: 0.8rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  transition: border-color 0.3s var(--ease);
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.field input.invalid,
+.field textarea.invalid {
+  border-color: var(--error);
+}
+
+.field-error {
+  color: var(--error);
+  font-size: 0.78rem;
+  display: none;
+}
+
+.field-error.is-visible {
+  display: block;
+}
+
+/* ---------- Modal ---------- */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: rgba(5, 4, 3, 0.78);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+}
+
+.modal-backdrop.is-open {
+  display: flex;
+}
+
+.modal {
+  width: min(480px, 100%);
+  background: var(--surface);
+  border: 1px solid var(--gold-dim);
+  padding: var(--space-5);
+}
+
+.modal__title {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  margin-bottom: 4px;
+}
+
+.modal__sub {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin-bottom: var(--space-4);
+}
+
+.modal__actions {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+/* ---------- Hero dasar ---------- */
+.hero-media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 4, 3, 0.55);
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  border-top: 1px solid var(--line);
+  margin-top: var(--space-6);
+}
+
+.footer__inner {
+  width: min(1180px, 92%);
+  margin-inline: auto;
+  padding-block: var(--space-5);
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.4fr;
+  gap: var(--space-5);
+}
+
+.footer__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.footer__brand img {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--gold-dim);
+}
+
+.footer .label-caps {
+  color: var(--muted);
+}
+
+.footer ul {
+  list-style: none;
+}
+
+.footer li {
+  margin-bottom: 8px;
+}
+
+.footer a:hover {
+  color: var(--gold);
+}
+
+.footer__bottom {
+  border-top: 1px solid var(--line);
+  padding-block: var(--space-3);
+}
+
+.footer__bottom-inner {
+  width: min(1180px, 92%);
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.footer__addr {
+  font-size: 0.82rem;
+  margin-top: 6px;
+}
+
+/* ---------- Motion: reveal via IntersectionObserver ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+}
+
+.reveal.is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+
+.reveal-stagger.is-in > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-stagger.is-in > *:nth-child(2) { transition-delay: 0.08s; }
+.reveal-stagger.is-in > *:nth-child(3) { transition-delay: 0.16s; }
+.reveal-stagger.is-in > *:nth-child(4) { transition-delay: 0.24s; }
+.reveal-stagger.is-in > *:nth-child(5) { transition-delay: 0.32s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal,
+  .reveal-stagger > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .product-card,
+  .product-card__media img,
+  .btn {
+    transition: none;
+  }
+}
+
+/* ---------- Responsive dasar ---------- */
+@media (max-width: 960px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+}
+
+@media (max-width: 700px) {
+  .nav__inner {
+    flex-wrap: wrap;
+    padding-block: 10px;
+    row-gap: 4px;
+  }
+  .nav__brand {
+    order: 1;
+  }
+  .nav__actions {
+    order: 2;
+    margin-left: auto;
+  }
+  .nav__links {
+    order: 3;
+    width: 100%;
+    overflow-x: auto;
+    gap: var(--space-3);
+    padding-bottom: 8px;
+  }
+  .nav__links a {
+    white-space: nowrap;
+  }
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
